@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Fee calculator — select courses and get a quoted total including discounts and VAT." />
+  <title>Fee Calculator — Empowering the Nation</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand"><img src="assets/logo.png" alt="Logo" class="logo"></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="calculator.html" aria-current="page">Fee Calculator</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <button class="back-btn" onclick="history.back()">← Back</button>
+
+    <section>
+      <h1>Fee Calculator</h1>
+      <p class="lead">Select one or more courses. Discounts are applied automatically.</p>
+
+      <form id="quoteForm" novalidate>
+        <fieldset>
+          <legend>Contact details</legend>
+          <label for="name">Full name</label>
+          <input id="name" name="name" required aria-required="true" type="text" placeholder="Your full name">
+
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" required pattern="^[0-9+ ]{7,20}$" type="tel" placeholder="+27 82 000 0000">
+
+          <label for="email">Email address</label>
+          <input id="email" name="email" required type="email" placeholder="name@example.com">
+        </fieldset>
+
+        <fieldset>
+          <legend>Choose courses</legend>
+          <div id="coursesCheckboxes" class="checkbox-grid" aria-live="polite">
+            <!-- checkboxes inserted by JS -->
+          </div>
+        </fieldset>
+
+        <div class="calc-actions">
+          <button class="btn" id="calculateBtn" type="button">Calculate Total</button>
+          <button class="btn secondary" id="resetBtn" type="button">Reset</button>
+        </div>
+
+        <div id="errors" role="alert" class="errors" aria-live="assertive"></div>
+      </form>
+
+      <section id="quoteResult" class="quote-result" hidden>
+        <h2>Quote</h2>
+        <div id="invoice"></div>
+        <p class="small-note">This is a quote including discounts and 15% VAT. It is not a tax invoice.</p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>© <span id="year4"></span> Empowering the Nation.</p></div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+  <script>
+    // allow pre-select from course-detail ?add=... (convenience)
+    document.addEventListener('DOMContentLoaded', () => {
+      const addId = new URLSearchParams(location.search).get('add');
+      if (addId) {
+        // wait for renderCourseCheckboxes to exist
+        setTimeout(() => {
+          const cb = document.querySelector(`input[data-id="${addId}"]`);
+          if (cb) cb.checked = true;
+        }, 200);
+      }
+    });
+  </script>
+</body>
+</html>

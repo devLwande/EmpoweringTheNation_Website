@@ -1,0 +1,75 @@
+:root{
+  --brand-blue:#0a4ea0;
+  --brand-green:#46aa46;
+  --brand-gold:#ffd14a;
+  --text:#1e293b;
+  --muted:#6b7280;
+  --max-width:1100px;
+  --radius:8px;
+  --gap:18px;
+  --container-padding:20px;
+  --focus: 3px solid rgba(10,78,160,0.18);
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  color:var(--text);
+  background:#f7f9fc;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{max-width:var(--max-width);margin:0 auto;padding:var(--container-padding);}
+
+.site-header{background:#fff;border-bottom:1px solid #e6eef8;position:sticky;top:0;z-index:40}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;text-decoration:none}
+.logo{height:56px;width:auto}
+.main-nav a{margin-left:18px;text-decoration:none;color:var(--text);font-weight:600}
+.main-nav a:hover{color:var(--brand-blue)}
+.main-nav a[aria-current="page"]{color:var(--brand-blue)}
+
+.hero{padding:36px 0;text-align:left}
+.hero h1{margin:0;font-size:2.1rem;color:var(--brand-blue)}
+.tagline{color:var(--muted);margin-top:6px;font-weight:600}
+.lead{color:var(--muted)}
+
+.actions .btn, .btn{display:inline-block;padding:12px 18px;border-radius:6px;background:var(--brand-blue);color:#fff;text-decoration:none;font-weight:700}
+.btn.secondary{background:#fff;border:2px solid var(--brand-blue);color:var(--brand-blue)}
+.btn:hover{opacity:0.95}
+.small-note{color:var(--muted);font-size:0.95rem}
+
+.cards{display:flex;gap:var(--gap);list-style:none;padding:0;margin:18px 0}
+.cards li{background:#fff;padding:18px;border-radius:10px;box-shadow:0 4px 16px rgba(13,40,60,0.04);flex:1}
+
+.two-cols{display:flex;gap:18px}
+.col{flex:1;background:#fff;padding:16px;border-radius:10px;box-shadow:0 3px 12px rgba(13,40,60,0.04)}
+
+.course-list{list-style:none;padding:0}
+.course-list li{background:#fff;padding:10px;border-radius:6px;margin:8px 0;box-shadow:0 2px 8px rgba(13,40,60,0.03)}
+.course-list a{text-decoration:none;color:var(--brand-blue);font-weight:600}
+
+.back-btn{background:#fff;border:1px solid #dcebf9;color:var(--brand-blue);padding:8px 10px;border-radius:6px;cursor:pointer;margin-bottom:12px}
+
+.checkbox-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.checkbox-grid label{display:flex;align-items:center;gap:12px;background:#fff;padding:10px;border-radius:8px;border:1px solid #eef6ff}
+.checkbox-grid input[type="checkbox"]{width:18px;height:18px}
+
+.calc-actions{margin-top:16px;display:flex;gap:12px}
+.errors{color:#b91c1c;margin-top:12px}
+
+.quote-result{background:#fff;padding:16px;border-radius:8px;margin-top:12px;box-shadow:0 4px 20px rgba(13,40,60,0.04)}
+
+.site-footer{background:#fff;border-top:1px solid #e6eef8;padding:18px;margin-top:32px;text-align:center;color:var(--muted)}
+
+.map-wrapper iframe{width:100%;height:240px;border:0;border-radius:8px}
+
+/* responsive */
+@media (max-width:800px){
+  .two-cols{flex-direction:column}
+  .header-inner{padding:8px 0}
+  .logo{height:48px}
+}

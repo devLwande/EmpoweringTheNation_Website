@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Course detail</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand"><img src="assets/logo.png" alt="Logo" class="logo"></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="calculator.html">Fee Calculator</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <button class="back-btn" onclick="history.back()">← Back</button>
+
+    <article id="course" class="course-detail" aria-live="polite">
+      <!-- content will be injected by JS -->
+    </article>
+
+    <div class="actions">
+      <a id="addToQuote" class="btn" href="calculator.html">Add to Quote (open calculator)</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>© <span id="year3"></span> Empowering the Nation.</p></div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+  <script>
+    // immediate small helper to render course details using dataset defined in script.js
+    document.addEventListener('DOMContentLoaded', function () {
+      const id = new URLSearchParams(location.search).get('id') || '';
+      const course = window.courseData && window.courseData[id];
+      const container = document.getElementById('course');
+      if (!course) {
+        container.innerHTML = '<h2>Course not found</h2><p>Check the courses list and try again.</p>';
+        return;
+      }
+      container.innerHTML = `
+        <h1>${course.title}</h1>
+        <p class="meta">Fee: R${course.fee.toFixed(2)}</p>
+        <h3>Purpose</h3>
+        <p>${course.purpose}</p>
+        <h3>Content</h3>
+        <ul>${course.content.map(item => `<li>${item}</li>`).join('')}</ul>
+      `;
+      // set link to add this course to calculator via querystring
+      const addBtn = document.getElementById('addToQuote');
+      addBtn.href = 'calculator.html?add=' + encodeURIComponent(id);
+    });
+  </script>
+</body>
+</html>

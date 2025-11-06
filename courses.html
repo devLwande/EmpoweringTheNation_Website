@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Course listings — Empowering the Nation. Six-month and six-week course summaries." />
+  <title>Courses — Empowering the Nation</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand"><img src="assets/logo.png" alt="Logo" class="logo"></a>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="courses.html" aria-current="page">Courses</a>
+        <a href="calculator.html">Fee Calculator</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <button class="back-btn" onclick="history.back()">← Back</button>
+
+    <section>
+      <h1>Six-month Courses</h1>
+      <p class="lead">Longer learnerships that provide in-depth skills.</p>
+      <ul class="course-list">
+        <li><a href="course-detail.html?id=first-aid">First Aid — R1500</a></li>
+        <li><a href="course-detail.html?id=sewing">Sewing — R1500</a></li>
+        <li><a href="course-detail.html?id=landscaping">Landscaping — R1500</a></li>
+        <li><a href="course-detail.html?id=life-skills">Life Skills — R1500</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h1>Six-week Courses</h1>
+      <p class="lead">Short skills trainings aimed at fast impact.</p>
+      <ul class="course-list">
+        <li><a href="course-detail.html?id=child-minding">Child Minding — R750</a></li>
+        <li><a href="course-detail.html?id=cooking">Cooking — R750</a></li>
+        <li><a href="course-detail.html?id=garden-maintenance">Garden Maintenance — R750</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>© <span id="year2"></span> Empowering the Nation.</p></div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
